@@ -9,9 +9,11 @@ redirect_from:
 
 ## About Me
 
-Hello! I'm **Jianhe Li**, a security researcher focused on **Web AI security** and **binary security**. I hunt for flaws in complex systems — across LLM-powered applications and native binaries — and turn them into reproducible, fixable reports.
+<p style="font-size:1.2rem;font-weight:600;margin:0 0 0.8em;">Hello! I'm <span class="grad-text">Jianhe Li</span> 👋</p>
 
-My work has been acknowledged by **Microsoft**, **Intel**, **Google**, and **Apple**. See the [full list →]({{ '/publications/' | relative_url }}).
+A security researcher focused on **Web AI security** and **binary security**. I hunt for flaws in complex systems — across LLM-powered applications and native binaries — and turn them into reproducible, fixable reports.
+
+My work has been acknowledged by **Microsoft**, **Intel**, **Google**, and **Apple**. See the [full list ↓](#acknowledgments).
 
 ## Research Focus
 
@@ -42,6 +44,14 @@ My work has been acknowledged by **Microsoft**, **Intel**, **Google**, and **App
   </div>
 </div>
 
+## More
+
+<div class="cta-row">
+  <a class="btn btn--primary" href="{{ '/portfolio/' | relative_url }}">View Portfolio</a>
+  <a class="btn" href="{{ '/year-archive/' | relative_url }}">Read the Blog</a>
+  <a class="btn" href="{{ '/cv/' | relative_url }}">View CV</a>
+</div>
+
 ## Acknowledgments
 
 Security research acknowledged by:
@@ -63,12 +73,4 @@ Security research acknowledged by:
     <img src="{{ '/images/logos/apple.svg' | relative_url }}" alt="Apple" />
     <span class="ack-cap">Apple</span>
   </a>
-</div>
-
-## More
-
-<div class="cta-row">
-  <a class="btn btn--primary" href="{{ '/portfolio/' | relative_url }}">View Portfolio</a>
-  <a class="btn" href="{{ '/year-archive/' | relative_url }}">Read the Blog</a>
-  <a class="btn" href="{{ '/cv/' | relative_url }}">View CV</a>
 </div>

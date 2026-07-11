@@ -118,7 +118,14 @@ body::after {
   box-shadow: var(--glass-shadow);
   border: 1px solid var(--glass-border);
 }
-.author__name { font-weight: 600 !important; letter-spacing: 0.01em; }
+.author__name {
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
+  background: linear-gradient(135deg, var(--ink) 30%, var(--haitang) 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .author__bio { color: var(--ink-soft) !important; }
 .author__urls {
   background: var(--glass-bg) !important;
@@ -204,6 +211,21 @@ body::after {
 .page__footer a { color: var(--ink-soft) !important; }
 .page__footer-copyright { color: var(--ink-faint) !important; font-size: 0.82rem; }
 
+/* ===== Layout width (widen content column, align sidebar) ===== */
+@media (min-width: 1024px) {
+  #main { max-width: 1480px !important; }
+  #main .page { padding-right: 2em !important; }
+}
+
+/* Gradient text utility (premium accent) */
+.grad-text {
+  background: linear-gradient(135deg, var(--ink) 30%, var(--haitang) 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 /* ============================================================
    Homepage components
    ============================================================ */
@@ -286,27 +308,33 @@ body::after {
 
 /* Acknowledgment logo wall */
 .ack-logos {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1.4rem 2.2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
   margin-top: 0.4rem;
 }
 .ack-logo {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 112px;
+  padding: 1.2rem 1rem;
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
   text-decoration: none !important;
-  border: none !important;
+  border-bottom: none !important;
   color: var(--ink-soft);
-  transition: transform .4s var(--ease-out);
+  box-shadow: var(--glass-shadow);
+  transition: transform .4s var(--ease-out), box-shadow .4s var(--ease-out);
 }
-.ack-logo:hover { transform: translateY(-3px); color: var(--ink); }
+.ack-logo:hover { transform: translateY(-3px); box-shadow: var(--glass-shadow-hover); color: var(--ink); }
 .ack-logo img {
-  height: 34px;
+  height: 40px;
   width: auto;
+  max-width: 90%;
   display: block;
   opacity: 0.92;
   transition: opacity .3s var(--ease-out);
