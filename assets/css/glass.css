@@ -18,6 +18,7 @@
   --haitang: #A63A50;
   --haitang-bright: #D9534F;
   --haitang-soft: #F7E8EA;
+  --grad-premium: linear-gradient(135deg, #4a1224 0%, #A63A50 55%, #D9534F 100%);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ink: #1d1d1f;
@@ -119,17 +120,21 @@ body::after {
   border: 1px solid var(--glass-border);
 }
 .author__name {
-  font-weight: 600 !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
   letter-spacing: 0.01em;
-  background: linear-gradient(135deg, var(--ink) 30%, var(--haitang) 130%);
+  background: var(--grad-premium);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .author__bio {
-  color: var(--ink-soft) !important;
   font-weight: 500 !important;
   letter-spacing: 0.02em;
+  background: var(--grad-premium);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .author__urls {
   background: var(--glass-bg) !important;
@@ -150,12 +155,12 @@ body::after {
   letter-spacing: -0.01em;
   color: var(--ink);
 }
-.page__content > h2 {
+.page__content h2:not(.archive__item-title) {
   font-size: 1.45rem !important;
   font-weight: 700 !important;
   border-bottom: none !important;
   padding-bottom: 0.25em;
-  background: linear-gradient(135deg, var(--ink) 30%, var(--haitang) 130%);
+  background: var(--grad-premium);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -229,7 +234,7 @@ body::after {
 
 /* Gradient text utility (premium accent) */
 .grad-text {
-  background: linear-gradient(135deg, var(--ink) 30%, var(--haitang) 130%);
+  background: var(--grad-premium);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -476,6 +481,7 @@ body::after {
     --ink: #f0f0f2;
     --ink-soft: #c2c2c8;
     --ink-faint: #8a8a92;
+    --grad-premium: linear-gradient(135deg, #D9534F 0%, #e89a9a 100%);
   }
   body { background: #0c0c10; color: var(--ink-soft); }
   body::before {
