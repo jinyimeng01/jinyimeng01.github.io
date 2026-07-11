@@ -48,3 +48,36 @@
   });
 })();
 </script>
+
+<!-- gradient theme switcher (3 metallic palettes, persisted) -->
+<script>
+(function () {
+  var themes = ['aurora', 'haitang', 'onyx'];
+  var saved = 'aurora';
+  try { saved = localStorage.getItem('grad-theme') || 'aurora'; } catch (e) {}
+  function apply(t) {
+    if (!document.body) return;
+    themes.forEach(function (x) { document.body.classList.remove('theme-' + x); });
+    if (t !== 'aurora') document.body.classList.add('theme-' + t);
+    var btns = document.querySelectorAll('.grad-switcher button');
+    for (var i = 0; i < btns.length; i++) btns[i].classList.toggle('active', btns[i].getAttribute('data-theme') === t);
+  }
+  function build() {
+    var wrap = document.createElement('div');
+    wrap.className = 'grad-switcher';
+    wrap.setAttribute('aria-label', 'Accent theme');
+    themes.forEach(function (t) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('data-theme', t);
+      b.title = t.charAt(0).toUpperCase() + t.slice(1);
+      b.onclick = function () { try { localStorage.setItem('grad-theme', t); } catch (e) {} apply(t); };
+      wrap.appendChild(b);
+    });
+    document.body.appendChild(wrap);
+    apply(saved);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
+  else build();
+})();
+</script>

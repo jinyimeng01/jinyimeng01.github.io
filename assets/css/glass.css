@@ -18,7 +18,7 @@
   --haitang: #A63A50;
   --haitang-bright: #D9534F;
   --haitang-soft: #F7E8EA;
-  --grad-premium: linear-gradient(135deg, #1c1c24 0%, #3a2440 50%, #9a3a55 100%);
+  --grad-premium: linear-gradient(110deg, #1f3a66 0%, #2f4a8a 22%, #5a4a9a 44%, #c8d4f0 50%, #5a4a9a 56%, #2f4a8a 78%, #1f3a66 100%);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ink: #1d1d1f;
@@ -481,7 +481,6 @@ body::after {
     --ink: #f0f0f2;
     --ink-soft: #c2c2c8;
     --ink-faint: #8a8a92;
-    --grad-premium: linear-gradient(135deg, #c25a72 0%, #e0a0b0 100%);
   }
   body { background: #0c0c10; color: var(--ink-soft); }
   body::before {
@@ -499,6 +498,55 @@ body::after {
   .page__content h2 { border-bottom-color: rgba(255,255,255,0.08) !important; }
   .ack-logo img[alt="Apple"] { filter: invert(1); }
 }
+
+/* ===== Animated metallic gradient + theme switcher ===== */
+body.theme-haitang {
+  --grad-premium: linear-gradient(110deg, #5a1f38 0%, #7a2a4a 22%, #a8455f 44%, #f0d0bc 50%, #a8455f 56%, #7a2a4a 78%, #5a1f38 100%);
+}
+body.theme-onyx {
+  --grad-premium: linear-gradient(110deg, #2c2c3a 0%, #3c3c4e 22%, #5c5c70 44%, #e2e2ec 50%, #5c5c70 56%, #3c3c4e 78%, #2c2c3a 100%);
+}
+.page__content h2:not(.archive__item-title),
+.author__name,
+.author__bio,
+.grad-text {
+  background-size: 200% auto !important;
+  animation: grad-flow 6s linear infinite;
+}
+@keyframes grad-flow {
+  from { background-position: 0% 50%; }
+  to   { background-position: 200% 50%; }
+}
+
+.grad-switcher {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 60;
+  display: flex;
+  gap: 0.45rem;
+  padding: 0.4rem 0.55rem;
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  box-shadow: var(--glass-shadow);
+}
+.grad-switcher button {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.65);
+  padding: 0;
+  cursor: pointer;
+  transition: transform .3s var(--ease-out);
+}
+.grad-switcher button:hover { transform: scale(1.18); }
+.grad-switcher button[data-theme="aurora"]  { background: linear-gradient(135deg, #2f4a8a, #5a4a9a 55%, #c8d4f0); }
+.grad-switcher button[data-theme="haitang"] { background: linear-gradient(135deg, #7a2a4a, #a8455f 55%, #f0d0bc); }
+.grad-switcher button[data-theme="onyx"]    { background: linear-gradient(135deg, #3c3c4e, #5c5c70 55%, #e2e2ec); }
+.grad-switcher button.active { box-shadow: 0 0 0 2px var(--haitang), 0 0 0 4px rgba(255,255,255,0.5); }
 
 /* ===== Reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {
