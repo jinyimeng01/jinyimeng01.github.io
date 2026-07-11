@@ -18,7 +18,7 @@
   --haitang: #A63A50;
   --haitang-bright: #D9534F;
   --haitang-soft: #F7E8EA;
-  --grad-premium: linear-gradient(135deg, #4a1224 0%, #A63A50 55%, #D9534F 100%);
+  --grad-premium: linear-gradient(135deg, #1c1c24 0%, #3a2440 50%, #9a3a55 100%);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ink: #1d1d1f;
@@ -481,7 +481,7 @@ body::after {
     --ink: #f0f0f2;
     --ink-soft: #c2c2c8;
     --ink-faint: #8a8a92;
-    --grad-premium: linear-gradient(135deg, #D9534F 0%, #e89a9a 100%);
+    --grad-premium: linear-gradient(135deg, #c25a72 0%, #e0a0b0 100%);
   }
   body { background: #0c0c10; color: var(--ink-soft); }
   body::before {
