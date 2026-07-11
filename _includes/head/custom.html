@@ -10,6 +10,9 @@
  <link rel="preload" href="{{ base_path }}/assets/css/fontawesome.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ base_path }}/assets/css/fontawesome.css"></noscript>
 
+<!-- HaiTang glass premium theme -->
+<link rel="stylesheet" href="{{ base_path }}/assets/css/glass.css">
+
 <!-- favicon from https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_academic-progressive.svg -->
 <link rel="apple-touch-icon" sizes="180x180" href="{{ base_path }}/images/apple-touch-icon-180x180.png"/>
 <link rel="icon" type="image/svg+xml" href="{{ base_path }}/images/favicon.svg"/>
@@ -17,6 +20,31 @@
 <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-192x192.png" sizes="192x192"/>
 <link rel="manifest" href="{{ base_path }}/images/manifest.json"/>
 <link rel="icon" href="/images/favicon.ico"/>
-<meta name="theme-color" content="var(--global-bg-color)"/>
+<meta name="theme-color" content="#A63A50"/>
 
 <!-- end custom head snippets -->
+
+<!-- click-to-copy for elements with [data-copy] -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('[data-copy]') : null;
+    if (!el) return;
+    e.preventDefault();
+    var text = el.getAttribute('data-copy');
+    var hint = el.querySelector('.copy-hint');
+    var prev = hint ? hint.textContent : '';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, done);
+    } else { done(); }
+    function done() {
+      el.classList.add('copied');
+      if (hint) hint.textContent = '已复制 ✓';
+      setTimeout(function () {
+        el.classList.remove('copied');
+        if (hint) hint.textContent = prev;
+      }, 1600);
+    }
+  });
+})();
+</script>
