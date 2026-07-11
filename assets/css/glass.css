@@ -1,14 +1,14 @@
 /* ============================================================
-   HaiTang · Glass Premium Theme  (v2 — lighter type, more air)
+   HaiTang · Glass Premium Theme  (v3 — flowing bg, no floating header)
    Apple-inspired glassmorphism overlay for Academic Pages
    ============================================================ */
 
 :root {
-  --glass-bg: rgba(255, 255, 255, 0.60);
-  --glass-bg-strong: rgba(255, 255, 255, 0.80);
-  --glass-border: rgba(255, 255, 255, 0.55);
-  --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.10);
-  --glass-shadow-hover: 0 16px 48px rgba(31, 38, 135, 0.16);
+  --glass-bg: rgba(255, 255, 255, 0.58);
+  --glass-bg-strong: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.09);
+  --glass-shadow-hover: 0 16px 48px rgba(31, 38, 135, 0.15);
   --glass-blur: saturate(180%) blur(20px);
 
   --radius-xl: 24px;
@@ -25,48 +25,50 @@
   --ink-faint: #86868b;
 }
 
-/* ===== Animated aurora background ===== */
+/* ===== Flowing aurora background ===== */
 html { scroll-behavior: smooth; }
 
 body {
   position: relative;
   min-height: 100vh;
-  background: #f6f7fb;
+  background: #f6f4f8;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
-    "PingFang SC", "Hiragino Sans GB", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    "PingFang SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0.01em;
 }
 
+/* soft tri-tone base wash */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -2;
-  background:
-    radial-gradient(40% 50% at 12% 18%, rgba(217, 83, 79, 0.18), transparent 60%),
-    radial-gradient(45% 55% at 88% 12%, rgba(66, 133, 244, 0.15), transparent 60%),
-    radial-gradient(50% 60% at 82% 88%, rgba(166, 58, 80, 0.14), transparent 60%),
-    radial-gradient(42% 52% at 18% 82%, rgba(120, 90, 220, 0.12), transparent 60%),
-    linear-gradient(135deg, #f8f9fd 0%, #edeff6 100%);
+  background: linear-gradient(135deg, #f7f8fc 0%, #edeef7 48%, #f5edef 100%);
 }
 
+/* flowing colored blobs — drift + rotate + scale for an organic, premium motion */
 body::after {
   content: "";
   position: fixed;
-  inset: -20%;
+  inset: -25%;
   z-index: -1;
-  background:
-    radial-gradient(28% 28% at 28% 32%, rgba(217, 83, 79, 0.10), transparent 60%),
-    radial-gradient(24% 24% at 72% 62%, rgba(66, 133, 244, 0.10), transparent 60%);
-  animation: drift 28s var(--ease-out) infinite alternate;
   pointer-events: none;
+  background:
+    radial-gradient(26% 26% at 22% 28%, rgba(217, 83, 79, 0.22), transparent 62%),
+    radial-gradient(24% 24% at 78% 22%, rgba(66, 133, 244, 0.20), transparent 62%),
+    radial-gradient(30% 30% at 76% 76%, rgba(166, 58, 80, 0.18), transparent 62%),
+    radial-gradient(26% 26% at 24% 78%, rgba(120, 90, 220, 0.18), transparent 62%),
+    radial-gradient(22% 22% at 50% 52%, rgba(217, 83, 79, 0.08), transparent 62%);
+  animation: flow 34s var(--ease-out) infinite alternate;
 }
 
-@keyframes drift {
-  0%   { transform: translate3d(0, 0, 0) scale(1); }
-  100% { transform: translate3d(2.5%, -3%, 0) scale(1.08); }
+@keyframes flow {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+  33%  { transform: translate3d(2.2%, -2%, 0) rotate(7deg) scale(1.09); }
+  66%  { transform: translate3d(-2%, 2.2%, 0) rotate(-6deg) scale(1.13); }
+  100% { transform: translate3d(1.2%, 3%, 0) rotate(5deg) scale(1.1); }
 }
 
 /* ===== Glass utility ===== */
@@ -80,15 +82,18 @@ body::after {
   box-shadow: var(--glass-shadow);
 }
 
-/* ===== Masthead (sticky glass nav) ===== */
+/* ===== Masthead — transparent, NOT floating (static, no border) ===== */
 .masthead,
-#masthead {
-  background: rgba(255, 255, 255, 0.62) !important;
-  backdrop-filter: var(--glass-blur) !important;
-  -webkit-backdrop-filter: var(--glass-blur) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+#masthead,
+.masthead__menu {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  position: static !important;
 }
-.greedy-nav { background: transparent !important; }
+.greedy-nav { background: transparent !important; box-shadow: none !important; }
 .greedy-nav a,
 .greedy-nav .nav-separator {
   color: var(--ink) !important;
@@ -99,6 +104,7 @@ body::after {
 .greedy-nav a:hover { color: var(--haitang) !important; }
 .greedy-nav .visible-links a { border-bottom: none !important; }
 .site-title a { font-weight: 600 !important; letter-spacing: 0.02em; }
+.greedy-nav .nav-toggle { background: transparent !important; }
 
 /* ===== Sidebar (author panel) ===== */
 .author__avatar img {
@@ -128,8 +134,12 @@ body::after {
   color: var(--ink);
 }
 .page__content h2 {
-  border-bottom: 1px solid rgba(0,0,0,0.06) !important;
-  padding-bottom: 0.4em;
+  border-bottom: none !important;
+  padding-bottom: 0.25em;
+}
+.page__content .section-title {
+  border: none !important;
+  padding: 0 !important;
 }
 .page__content p { color: var(--ink-soft); line-height: 1.8; }
 .page__content a {
@@ -181,18 +191,20 @@ body::after {
 }
 .btn--primary:hover { color: #fff !important; }
 
-/* ===== Footer ===== */
+/* ===== Footer — transparent, no border, minimal ===== */
 .page__footer {
-  background: rgba(255,255,255,0.5);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-top: 1px solid var(--glass-border);
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
   color: var(--ink-faint) !important;
 }
 .page__footer a { color: var(--ink-soft) !important; }
+.page__footer-copyright { color: var(--ink-faint) !important; font-size: 0.82rem; }
 
 /* ============================================================
-   Homepage components  (v2 — smaller, airier)
+   Homepage components
    ============================================================ */
 
 .block { margin-top: 2.8rem; }
@@ -200,17 +212,18 @@ body::after {
 /* Hero */
 .hero {
   text-align: center;
-  padding: 1rem 1rem 0.5rem;
+  padding: 0.6rem 1rem 0.5rem;
 }
 .hero__avatar {
-  width: 112px;
-  height: 112px;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center top;
   display: block;
-  margin: 0 auto 1.3rem;
-  box-shadow: 0 14px 40px rgba(31, 38, 135, 0.20);
-  border: 4px solid rgba(255, 255, 255, 0.75);
+  margin: 0 auto 1.1rem;
+  box-shadow: 0 12px 34px rgba(31, 38, 135, 0.18);
+  border: 3px solid rgba(255, 255, 255, 0.75);
 }
 .hero__eyebrow {
   text-transform: uppercase;
@@ -218,10 +231,10 @@ body::after {
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--haitang);
-  margin: 0 0 0.7em;
+  margin: 0 0 0.6em;
 }
 .hero__title {
-  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   margin: 0 0 0.35em;
@@ -231,7 +244,7 @@ body::after {
   -webkit-text-fill-color: transparent;
 }
 .hero__subtitle {
-  font-size: clamp(0.98rem, 1.7vw, 1.12rem);
+  font-size: clamp(0.95rem, 1.6vw, 1.08rem);
   font-weight: 500;
   color: var(--ink);
   margin: 0 0 0.9em;
@@ -245,13 +258,13 @@ body::after {
   max-width: 40em;
   margin: 0 auto;
   color: var(--ink-soft);
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   line-height: 1.8;
 }
 
 /* Section heads */
 .section-title {
-  font-size: 1.18rem;
+  font-size: 1.15rem;
   font-weight: 600;
   margin: 0 0 0.25em;
   color: var(--ink);
@@ -261,7 +274,7 @@ body::after {
 .section-sub {
   margin: 0 0 1.3em;
   color: var(--ink-faint);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 /* Generic card body */
@@ -276,14 +289,14 @@ body::after {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 1.6rem 2.4rem;
+  gap: 1.4rem 2.2rem;
   margin-top: 0.4rem;
 }
 .ack-logo {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.5rem;
   text-decoration: none !important;
   border: none !important;
   color: var(--ink-soft);
@@ -291,7 +304,7 @@ body::after {
 }
 .ack-logo:hover { transform: translateY(-3px); color: var(--ink); }
 .ack-logo img {
-  height: 38px;
+  height: 34px;
   width: auto;
   display: block;
   opacity: 0.92;
@@ -299,7 +312,7 @@ body::after {
 }
 .ack-logo:hover img { opacity: 1; }
 .ack-logo .ack-cap {
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -371,9 +384,9 @@ body::after {
   align-items: center;
   gap: 0.55em;
   margin-top: 1.1rem;
-  padding: 0.65em 1.15em;
+  padding: 0.6em 1.1em;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: #fff;
   background: linear-gradient(135deg, #07c160, #06ad56);
@@ -386,7 +399,7 @@ body::after {
 .copy-chip:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(7,193,96,0.36); }
 .copy-chip .wx-id { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
 .copy-chip .copy-hint {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 500;
   opacity: 0.85;
   padding-left: 0.4em;
@@ -413,9 +426,9 @@ body::after {
 /* ===== Dark mode ===== */
 @media (prefers-color-scheme: dark) {
   :root {
-    --glass-bg: rgba(40, 40, 48, 0.55);
-    --glass-bg-strong: rgba(48, 48, 58, 0.72);
-    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(40, 40, 48, 0.50);
+    --glass-bg-strong: rgba(48, 48, 58, 0.70);
+    --glass-border: rgba(255, 255, 255, 0.07);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.34);
     --glass-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.46);
     --haitang-soft: rgba(166, 58, 80, 0.22);
@@ -425,21 +438,18 @@ body::after {
   }
   body { background: #0c0c10; color: var(--ink-soft); }
   body::before {
-    background:
-      radial-gradient(40% 50% at 12% 18%, rgba(217, 83, 79, 0.20), transparent 60%),
-      radial-gradient(45% 55% at 88% 12%, rgba(66, 133, 244, 0.16), transparent 60%),
-      radial-gradient(50% 60% at 82% 88%, rgba(166, 58, 80, 0.16), transparent 60%),
-      radial-gradient(42% 52% at 18% 82%, rgba(120, 90, 220, 0.14), transparent 60%),
-      linear-gradient(135deg, #101016 0%, #0a0a0e 100%);
+    background: linear-gradient(135deg, #101017 0%, #0b0b12 50%, #14090d 100%);
   }
-  .masthead, #masthead {
-    background: rgba(20, 20, 26, 0.62) !important;
-    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+  body::after {
+    background:
+      radial-gradient(26% 26% at 22% 28%, rgba(217, 83, 79, 0.24), transparent 62%),
+      radial-gradient(24% 24% at 78% 22%, rgba(66, 133, 244, 0.20), transparent 62%),
+      radial-gradient(30% 30% at 76% 76%, rgba(166, 58, 80, 0.18), transparent 62%),
+      radial-gradient(26% 26% at 24% 78%, rgba(120, 90, 220, 0.18), transparent 62%);
   }
   .greedy-nav a, .greedy-nav .nav-separator { color: var(--ink) !important; }
   .page__content h1, .page__content h2, .page__content h3 { color: var(--ink); }
   .page__content h2 { border-bottom-color: rgba(255,255,255,0.08) !important; }
-  /* keep brand logos vivid on dark by inverting the monochrome apple mark */
   .ack-logo img[alt="Apple"] { filter: invert(1); }
 }
 
