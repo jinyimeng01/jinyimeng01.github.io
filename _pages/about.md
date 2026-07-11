@@ -13,7 +13,30 @@ redirect_from:
 
 A security researcher focused on **Web AI security** and **binary security**. I hunt for flaws in complex systems — across LLM-powered applications and native binaries — and turn them into reproducible, fixable reports.
 
-My work has been acknowledged by **Microsoft**, **Intel**, **Google**, and **Apple**. See the [full list ↓](#acknowledgments).
+My work has been acknowledged by **Microsoft**, **Intel**, **Google**, and **Apple** — see the [full list ↓](#acknowledgments).
+
+## Acknowledgments
+
+<p class="section-sub">Security research acknowledged by:</p>
+
+<div class="ack-logos">
+  <a class="ack-logo" href="{{ '/publications/ack-microsoft/' | relative_url }}">
+    <img src="{{ '/images/logos/microsoft.svg' | relative_url }}" alt="Microsoft" />
+    <span class="ack-cap">Microsoft</span>
+  </a>
+  <a class="ack-logo" href="{{ '/publications/ack-intel/' | relative_url }}">
+    <img src="{{ '/images/logos/intel.svg' | relative_url }}" alt="Intel" />
+    <span class="ack-cap">Intel</span>
+  </a>
+  <a class="ack-logo" href="{{ '/publications/ack-google/' | relative_url }}">
+    <img src="{{ '/images/logos/google.svg' | relative_url }}" alt="Google" />
+    <span class="ack-cap">Google</span>
+  </a>
+  <a class="ack-logo" href="{{ '/publications/ack-apple/' | relative_url }}">
+    <img src="{{ '/images/logos/apple.svg' | relative_url }}" alt="Apple" />
+    <span class="ack-cap">Apple</span>
+  </a>
+</div>
 
 ## Research Focus
 
@@ -50,27 +73,4 @@ My work has been acknowledged by **Microsoft**, **Intel**, **Google**, and **App
   <a class="btn btn--primary" href="{{ '/portfolio/' | relative_url }}">View Portfolio</a>
   <a class="btn" href="{{ '/year-archive/' | relative_url }}">Read the Blog</a>
   <a class="btn" href="{{ '/cv/' | relative_url }}">View CV</a>
-</div>
-
-## Acknowledgments
-
-Security research acknowledged by:
-
-<div class="ack-logos">
-  <a class="ack-logo" href="{{ '/publications/ack-microsoft/' | relative_url }}">
-    <img src="{{ '/images/logos/microsoft.svg' | relative_url }}" alt="Microsoft" />
-    <span class="ack-cap">Microsoft</span>
-  </a>
-  <a class="ack-logo" href="{{ '/publications/ack-intel/' | relative_url }}">
-    <img src="{{ '/images/logos/intel.svg' | relative_url }}" alt="Intel" />
-    <span class="ack-cap">Intel</span>
-  </a>
-  <a class="ack-logo" href="{{ '/publications/ack-google/' | relative_url }}">
-    <img src="{{ '/images/logos/google.svg' | relative_url }}" alt="Google" />
-    <span class="ack-cap">Google</span>
-  </a>
-  <a class="ack-logo" href="{{ '/publications/ack-apple/' | relative_url }}">
-    <img src="{{ '/images/logos/apple.svg' | relative_url }}" alt="Apple" />
-    <span class="ack-cap">Apple</span>
-  </a>
 </div>
