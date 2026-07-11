@@ -114,7 +114,7 @@ body::after {
 
 /* ===== Sidebar (author panel) ===== */
 .author__avatar img {
-  border-radius: var(--radius-lg) !important;
+  border-radius: 50% !important;
   box-shadow: var(--glass-shadow);
   border: 1px solid var(--glass-border);
 }
