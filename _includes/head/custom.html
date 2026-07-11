@@ -39,7 +39,7 @@
     } else { done(); }
     function done() {
       el.classList.add('copied');
-      if (hint) hint.textContent = '已复制 ✓';
+      if (hint) hint.textContent = 'Copied ✓';
       setTimeout(function () {
         el.classList.remove('copied');
         if (hint) hint.textContent = prev;

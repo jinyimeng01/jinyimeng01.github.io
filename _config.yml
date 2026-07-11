@@ -7,12 +7,12 @@
 # server process.
 
 # Basic Site Settings
-locale                   : "zh-CN"
+locale                   : "en-US"
 site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
-title                    : "李建赫 / Li Jianhe"
+title                    : "Jianhe Li — Security Researcher"
 title_separator          : "-"
-name                     : &name "李建赫"
-description              : &description "李建赫 — 安全研究员，专注 Web AI 安全与二进制安全，获微软/英特尔/谷歌/苹果致谢"   # Update this with a general description of your site, this is the default if not overridden by a page
+name                     : &name "Jianhe Li"
+description              : &description "Jianhe Li — Security Researcher. Web AI security & binary security. Acknowledged by Microsoft, Intel, Google, Apple."   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://jinyimeng01.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "/HaiTang" # the subpath of your site, e.g. "/blog"
@@ -23,10 +23,10 @@ repository               : "jinyimeng01/HaiTang"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.svg"
-  name             : "李建赫"
+  avatar           : "profile.jpg"
+  name             : "Jianhe Li"
   pronouns         : # example: "she/her"  
-  bio              : "安全研究员 · Web AI 安全 / 二进制安全"
+  bio              : "Security Researcher · Web AI & Binary Security"
   location         : "China"
   employer         :
   uri              : # URL
@@ -82,7 +82,7 @@ author:
   youtube          : # Username
   zhihu            : # Username
 
-# Publication Category — disabled (publications repurposed as 致谢墙, rendered as a flat list)
+# Publication Category — disabled (publications repurposed as acknowledgments, rendered as a flat list)
 # publication_category:
 #   books:
 #     title: 'Books'

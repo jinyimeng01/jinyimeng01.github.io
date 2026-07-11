@@ -1,15 +1,14 @@
-# Top navigation — HaiTang (李建赫 / 安全研究员)
-# Order here = order in the header. Remove a block to hide it.
+# Top navigation — HaiTang (Jianhe Li / Security Researcher)
 
 main:
-  - title: "致谢墙"
+  - title: "Acknowledgments"
     url: /publications/
 
-  - title: "作品"
+  - title: "Portfolio"
     url: /portfolio/
 
-  - title: "文章"
+  - title: "Blog"
     url: /year-archive/
 
-  - title: "简历"
+  - title: "CV"
     url: /cv/

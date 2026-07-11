@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 48" width="132" height="48" role="img" aria-label="Intel">
+  <text x="64" y="37" font-family="Helvetica Neue, Arial, sans-serif" font-size="34" font-weight="700" font-style="italic" fill="#0071C5" text-anchor="middle" letter-spacing="-1.5">intel</text>
+  <circle cx="108" cy="15" r="5.5" fill="none" stroke="#0071C5" stroke-width="1.6"/>
+  <text x="108" y="18.5" font-family="Arial, sans-serif" font-size="6.5" font-weight="700" fill="#0071C5" text-anchor="middle">R</text>
+</svg>

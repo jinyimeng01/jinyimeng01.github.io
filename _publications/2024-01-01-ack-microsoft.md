@@ -1,15 +1,15 @@
 ---
-title: "Microsoft 安全致谢"
+title: "Microsoft Security Acknowledgment"
 collection: publications
 permalink: /publications/ack-microsoft
-excerpt: "漏洞报告获 Microsoft 安全团队致谢。"
+excerpt: "A reported vulnerability acknowledged by the Microsoft security team."
 date: 2024-01-01
 venue: "Microsoft"
 ---
 
-向 Microsoft 报告的安全漏洞获官方致谢。
+A security vulnerability reported to Microsoft was officially acknowledged by their security team.
 
-- **产品 / Product**：待补充
-- **漏洞类型 / Type**：待补充
-- **严重性 / Severity**：待补充
-- **致谢页面 / Reference**：待补充
+- **Product**: *to be added*
+- **Vulnerability type**: *to be added*
+- **Severity**: *to be added*
+- **Reference / Hall of Fame**: *to be added*
