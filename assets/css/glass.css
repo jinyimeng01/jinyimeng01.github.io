@@ -98,7 +98,8 @@ body::after {
 .masthead::after,
 .masthead__menu::after { display: none !important; }
 .masthead__menu-item.selected a { border-bottom: none !important; }
-.greedy-nav { background: transparent !important; box-shadow: none !important; }
+.greedy-nav,
+.greedy-nav button { background: transparent !important; box-shadow: none !important; }
 .greedy-nav a,
 .greedy-nav .nav-separator {
   color: var(--ink) !important;

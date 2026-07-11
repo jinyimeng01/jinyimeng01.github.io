@@ -10,8 +10,8 @@
  <link rel="preload" href="{{ base_path }}/assets/css/fontawesome.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ base_path }}/assets/css/fontawesome.css"></noscript>
 
-<!-- HaiTang glass premium theme -->
-<link rel="stylesheet" href="{{ base_path }}/assets/css/glass.css">
+<!-- HaiTang glass premium theme (cache-busted per build) -->
+<link rel="stylesheet" href="{{ base_path }}/assets/css/glass.css?v={{ site.time | date: '%s' }}">
 
 <!-- favicon from https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_academic-progressive.svg -->
 <link rel="apple-touch-icon" sizes="180x180" href="{{ base_path }}/images/apple-touch-icon-180x180.png"/>
