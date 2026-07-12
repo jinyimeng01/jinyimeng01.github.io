@@ -3,7 +3,7 @@
 Personal website of **Jianhe Li** (李建赫), security researcher focused on
 **Web AI security** and **binary security**.
 
-**Live:** <https://jinyimeng01.github.io/HaiTang/>
+**Live:** <https://jinyimeng01.github.io/>
 
 Built with [Jekyll](https://jekyllrb.com) on the
 [Academic Pages](https://academicpages.github.io/) template (a fork of
@@ -51,7 +51,7 @@ Content marked `*to be added*` is placeholder — fill in the real details.
 ```bash
 bundle install
 bundle exec jekyll serve --livereload
-# → http://localhost:4000/HaiTang/
+# → http://localhost:4000/
 ```
 
 Or with the bundled Docker setup:
