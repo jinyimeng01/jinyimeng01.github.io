@@ -32,7 +32,9 @@ html { scroll-behavior: smooth; }
 body {
   position: relative;
   min-height: 100vh;
-  background: #f6f4f8;
+  background:
+    linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
+    url("../../images/3-25c.jpg") center center / cover no-repeat fixed;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
     "PingFang SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,52 +42,11 @@ body {
   letter-spacing: 0.01em;
 }
 
-/* soft tri-tone base wash */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background: linear-gradient(135deg, #f7f8fc 0%, #edeef7 48%, #f5edef 100%);
-}
+/* aurora disabled — full-bleed photo background lives on <body> */
+body::before,
+body::after { display: none !important; }
 
-/* flowing colored blobs — drift + rotate + scale for an organic, premium motion */
-body::after {
-  content: "";
-  position: fixed;
-  inset: -25%;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(26% 26% at 22% 28%, rgba(217, 83, 79, 0.22), transparent 62%),
-    radial-gradient(24% 24% at 78% 22%, rgba(66, 133, 244, 0.20), transparent 62%),
-    radial-gradient(30% 30% at 76% 76%, rgba(166, 58, 80, 0.18), transparent 62%),
-    radial-gradient(26% 26% at 24% 78%, rgba(120, 90, 220, 0.18), transparent 62%),
-    radial-gradient(22% 22% at 50% 52%, rgba(217, 83, 79, 0.08), transparent 62%);
-  animation: flow 34s var(--ease-out) infinite alternate;
-}
-
-@keyframes flow {
-  0%   { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
-  33%  { transform: translate3d(2.2%, -2%, 0) rotate(7deg) scale(1.09); }
-  66%  { transform: translate3d(-2%, 2.2%, 0) rotate(-6deg) scale(1.13); }
-  100% { transform: translate3d(1.2%, 3%, 0) rotate(5deg) scale(1.1); }
-}
-
-/* ===== Background photos (left sidebar = portrait, right content = landscape) ===== */
-.sidebar {
-  background:
-    linear-gradient(rgba(255,255,255,0.68), rgba(255,255,255,0.68)),
-    url("../../images/3-245.jpg") center top / cover no-repeat !important;
-}
-.page {
-  background:
-    linear-gradient(rgba(255,255,255,0.58), rgba(255,255,255,0.58)),
-    url("../../images/3-25c.jpg") center center / cover no-repeat fixed !important;
-}
-@media (max-width: 768px) {
-  .page { background-attachment: scroll !important; }
-}
+/* sidebar & content transparent — body photo shows through full-bleed */
 
 /* ===== Glass utility ===== */
 .glass,
@@ -526,16 +487,11 @@ body::after {
     --ink-soft: #c2c2c8;
     --ink-faint: #8a8a92;
   }
-  body { background: #0c0c10; color: var(--ink-soft); }
-  body::before {
-    background: linear-gradient(135deg, #101017 0%, #0b0b12 50%, #14090d 100%);
-  }
-  body::after {
+  body {
     background:
-      radial-gradient(26% 26% at 22% 28%, rgba(217, 83, 79, 0.24), transparent 62%),
-      radial-gradient(24% 24% at 78% 22%, rgba(66, 133, 244, 0.20), transparent 62%),
-      radial-gradient(30% 30% at 76% 76%, rgba(166, 58, 80, 0.18), transparent 62%),
-      radial-gradient(26% 26% at 24% 78%, rgba(120, 90, 220, 0.18), transparent 62%);
+      linear-gradient(rgba(12,12,18,0.55), rgba(12,12,18,0.55)),
+      url("../../images/3-25c.jpg") center center / cover no-repeat fixed !important;
+    color: var(--ink-soft);
   }
   .greedy-nav a, .greedy-nav .nav-separator { color: var(--ink) !important; }
   .page__content h1, .page__content h2, .page__content h3 { color: var(--ink); }
