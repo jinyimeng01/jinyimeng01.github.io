@@ -27,14 +27,19 @@
 }
 
 /* ===== Flowing aurora background ===== */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background:
+    linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
+    url("../../images/3-25c.jpg") center center / cover no-repeat fixed;
+  background-color: #15151c;
+  overscroll-behavior: none;
+}
 
 body {
   position: relative;
   min-height: 100vh;
-  background:
-    linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
-    url("../../images/3-25c.jpg") center center / cover no-repeat fixed;
+  background: transparent;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
     "PingFang SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -487,12 +492,12 @@ body::after { display: none !important; }
     --ink-soft: #c2c2c8;
     --ink-faint: #8a8a92;
   }
-  body {
+  html {
     background:
       linear-gradient(rgba(12,12,18,0.55), rgba(12,12,18,0.55)),
       url("../../images/3-25c.jpg") center center / cover no-repeat fixed !important;
-    color: var(--ink-soft);
   }
+  body { background: transparent !important; color: var(--ink-soft); }
   .greedy-nav a, .greedy-nav .nav-separator { color: var(--ink) !important; }
   .page__content h1, .page__content h2, .page__content h3 { color: var(--ink); }
   .page__content h2 { border-bottom-color: rgba(255,255,255,0.08) !important; }
