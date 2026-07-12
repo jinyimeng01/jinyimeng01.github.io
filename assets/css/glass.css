@@ -101,6 +101,34 @@ body::after {
 .masthead__menu-item.selected a { border-bottom: none !important; }
 .greedy-nav,
 .greedy-nav button { background: transparent !important; box-shadow: none !important; }
+
+/* masthead slogan — flowing flame gradient (Traditional Chinese) */
+.masthead { position: relative !important; }
+.masthead-slogan {
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  background: linear-gradient(90deg, #8b1a1a 0%, #ff3b00 25%, #ff8a00 45%, #ffd24a 50%, #ff8a00 55%, #ff3b00 75%, #8b1a1a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: flame-flow 5s linear infinite;
+}
+@keyframes flame-flow {
+  from { background-position: 0% 50%; }
+  to   { background-position: 200% 50%; }
+}
+@media (max-width: 900px) {
+  .masthead-slogan { display: none; }
+}
 .greedy-nav a,
 .greedy-nav .nav-separator {
   color: var(--ink) !important;
