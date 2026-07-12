@@ -72,6 +72,21 @@ body::after {
   100% { transform: translate3d(1.2%, 3%, 0) rotate(5deg) scale(1.1); }
 }
 
+/* ===== Background photos (left sidebar = portrait, right content = landscape) ===== */
+.sidebar {
+  background:
+    linear-gradient(rgba(255,255,255,0.68), rgba(255,255,255,0.68)),
+    url("../../images/3-245.jpg") center top / cover no-repeat !important;
+}
+.page {
+  background:
+    linear-gradient(rgba(255,255,255,0.58), rgba(255,255,255,0.58)),
+    url("../../images/3-25c.jpg") center center / cover no-repeat fixed !important;
+}
+@media (max-width: 768px) {
+  .page { background-attachment: scroll !important; }
+}
+
 /* ===== Glass utility ===== */
 .glass,
 .glass-card {
